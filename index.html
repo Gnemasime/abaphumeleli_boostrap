@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abaphumeleli Trading | CIDB Construction & Insurance Reinstatement</title>
+    <meta name="description" content="CIDB-registered, Level 3 BBBEE construction company. Rapid insurance reinstatement, civil works & property maintenance across KZN, Gauteng & SA.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            900: '#0B1120', 800: '#131B2E', 700: '#1E2D4A',
+                            600: '#4338CA', 500: '#6366F1', 400: '#818CF8',
+                            300: '#A5B4FC', accent: '#10B981',
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(99, 102, 241, 0.2)',
+                        'glow-lg': '0 0 40px rgba(99, 102, 241, 0.25)',
+                        'float': '0 20px 40px -10px rgba(0,0,0,0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B1120; color: #f8fafc; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B1120; }
+        ::-webkit-scrollbar-thumb { background: #1E2D4A; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366F1; }
+        .glass-panel { background: rgba(19, 27, 46, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); }
+        .text-gradient-blue { background: linear-gradient(135deg, #A5B4FC 0%, #6366F1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .input-field-light { background: #f9fafb; border: 1px solid #e5e7eb; color: #111827; transition: all 0.3s ease; }
+        .input-field-light:focus { border-color: #6366F1; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); outline: none; }
+        .input-field-light::placeholder { color: #9ca3af; }
+        .reveal-up { opacity: 0; transform: translateY(30px); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); }
+        .reveal-right { opacity: 0; transform: translateX(30px); }
+        .project-img-wrapper { overflow: hidden; }
+        .project-img-wrapper img { transition: transform 0.7s ease; }
+        .group:hover .project-img-wrapper img { transform: scale(1.1); }
+        #navbar { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        #navbar.scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06); }
+        .hero-section { position: relative; overflow: hidden; }
+        .hero-bg-image { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        .hero-overlay-1 { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(11,17,32,0.9) 0%, rgba(11,17,32,0.75) 50%, rgba(11,17,32,0.65) 100%); z-index: 1; }
+        .hero-overlay-2 { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,17,32,0.5) 0%, rgba(11,17,32,0.3) 40%, rgba(11,17,32,0.7) 100%); z-index: 2; }
+        .hero-overlay-3 { position: absolute; inset: 0; background: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.1), transparent 35%), radial-gradient(circle at 85% 40%, rgba(16, 185, 129, 0.06), transparent 30%); z-index: 3; }
+        .hero-overlay-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, #0B1120 0%, transparent 100%); z-index: 4; }
+        .hero-divider { width: 1px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent); }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Trust Bar -->
+    <div class="bg-brand-900 border-b border-brand-700/30 text-xs text-slate-400 py-2 hidden md:block relative z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2"><i class="fas fa-id-card text-brand-400"></i> CK: 2004/010055/23</span>
+                <span class="flex items-center gap-2"><i class="fas fa-file-invoice text-brand-400"></i> VAT: 4540217298</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span>Accepting New Projects</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 top-0 md:top-8 border-b border-gray-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <img src="logo.png" alt="Abaphumeleli Trading Logo" class="h-12 w-auto group-hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <h1 class="text-lg font-extrabold text-gray-900 tracking-tight leading-none">ABAPHUMELELI</h1>
+                        <p class="text-[10px] text-brand-500 font-semibold tracking-[0.2em] uppercase">Trading 157 CC</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Services</a>
+                    <a href="#process" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Process</a>
+                    <a href="work.html" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Our Work</a>
+                    <a href="#coverage" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Coverage</a>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="tel:0832486384" class="text-sm font-bold text-gray-700 hover:text-brand-600 transition flex items-center gap-2">
+                        <i class="fas fa-phone text-brand-500"></i> 083 248 6384
+                    </a>
+                    <a href="#contact" class="px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold rounded-lg transition shadow-glow">Get a Quote</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 absolute w-full shadow-lg">
+            <div class="px-4 py-6 space-y-4 flex flex-col">
+                <a href="#services" class="text-gray-700 hover:text-brand-600 font-medium transition">Services</a>
+                <a href="#process" class="text-gray-700 hover:text-brand-600 font-medium transition">Process</a>
+                <a href="work.html" class="text-gray-700 hover:text-brand-600 font-medium transition">Our Work</a>
+                <a href="#coverage" class="text-gray-700 hover:text-brand-600 font-medium transition">Coverage</a>
+                <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 bg-brand-500 text-white font-bold rounded-lg shadow-glow">Get a Quote</a>
+                <div class="pt-4 border-t border-gray-200 text-sm text-gray-500">
+                    <p>CK: 2004/010055/23</p><p>VAT: 4540217298</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section relative min-h-screen flex items-center">
+        <div class="hero-bg-image"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Construction worker on site"></div>
+        <div class="hero-overlay-1"></div><div class="hero-overlay-2"></div><div class="hero-overlay-3"></div><div class="hero-overlay-bottom"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-32 pb-20 lg:pt-40 lg:pb-32">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- LEFT -->
+                <div class="reveal-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold text-brand-300 mb-8">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span> CIDB Registered & Level 3 BBBEE
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">Building<br>Reliability.<br><span class="text-gradient-blue">Restoring Trust.</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-lg">Rapid-response insurance reinstatement and civil construction for South Africa's leading insurers, municipalities, and property managers.</p>
+                    <div class="flex items-center gap-8 mt-10 pt-8 border-t border-white/10">
+                        <div class="text-center"><div class="text-3xl font-bold text-white">20+</div><div class="text-[11px] text-slate-400 uppercase tracking-wider">Years</div></div>
+                        <div class="w-px h-12 bg-white/10"></div>
+                        <div class="text-center"><div class="text-3xl font-bold text-white">500+</div><div class="text-[11px] text-slate-400 uppercase tracking-wider">Projects</div></div>
+                        <div class="w-px h-12 bg-white/10"></div>
+                        <div class="text-center"><div class="text-3xl font-bold text-brand-accent">Level 3</div><div class="text-[11px] text-slate-400 uppercase tracking-wider">BBBEE</div></div>
+                        <div class="w-px h-12 bg-white/10 hidden sm:block"></div>
+                        <div class="text-center hidden sm:block"><div class="text-3xl font-bold text-white">4</div><div class="text-[11px] text-slate-400 uppercase tracking-wider">Provinces</div></div>
+                    </div>
+                </div>
+                <!-- RIGHT -->
+                <div class="reveal-right lg:pl-8">
+                    <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-y-1/2 hero-divider h-[60%] z-10"></div>
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start gap-4 p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accent/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-bolt text-brand-accent text-lg"></i></div>
+                            <div><h4 class="text-white font-bold text-lg mb-1">24/7 Emergency Claims Response</h4><p class="text-slate-400 text-sm">Rapid deployment teams on standby for fire, flood, and storm damage.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4 p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-12 h-12 rounded-xl bg-brand-400/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-handshake text-brand-400 text-lg"></i></div>
+                            <div><h4 class="text-white font-bold text-lg mb-1">End-to-End Insurance Liaison</h4><p class="text-slate-400 text-sm">We handle everything — from loss adjusters to final sign-off.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4 p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-12 h-12 rounded-xl bg-orange-400/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-hard-hat text-orange-400 text-lg"></i></div>
+                            <div><h4 class="text-white font-bold text-lg mb-1">Municipal & Infrastructure Grade</h4><p class="text-slate-400 text-sm">CIDB-registered for civil works and government infrastructure projects.</p></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="px-8 py-5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-xl transition shadow-glow text-center flex items-center justify-center gap-2 text-lg group flex-1">Get a Free Quote <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a>
+                        <a href="tel:0832486384" class="px-8 py-5 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white font-bold rounded-xl transition text-center flex items-center justify-center gap-2 text-lg flex-1"><i class="fas fa-phone"></i> Call Us Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-brand-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Core Services</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Comprehensive Solutions, <br>Single Point of Contact</h3>
+                <p class="text-slate-400">From burst pipes to bulk earthworks, we have the teams and equipment to execute.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="group p-8 rounded-2xl bg-brand-800 border border-brand-700/30 hover:border-brand-500/50 transition-all duration-300 hover:-translate-y-1 reveal-up">
+                    <div class="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors"><i class="fas fa-road"></i></div>
+                    <h4 class="text-xl font-bold text-white mb-3">Civil Construction</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Bulk earthworks, stormwater management, gabions, access roads, and general building works.</p>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-brand-500"></i> Municipal Infrastructure</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-brand-500"></i> Sports Fields & Earthworks</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-brand-500"></i> Plant Hire Available</li>
+                    </ul>
+                </div>
+                <div class="group p-8 rounded-2xl bg-brand-800 border border-brand-700/30 hover:border-brand-500/50 transition-all duration-300 hover:-translate-y-1 reveal-up delay-100">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors"><i class="fas fa-file-contract"></i></div>
+                    <h4 class="text-xl font-bold text-white mb-3">Insurance Reinstatement</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Specialist rapid-response unit for fire, water, storm, and structural damage.</p>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-brand-accent"></i> Burst Pipes & Water Damage</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-brand-accent"></i> Fire & Smoke Restoration</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-brand-accent"></i> Complete Claims Management</li>
+                    </ul>
+                </div>
+                <div class="group p-8 rounded-2xl bg-brand-800 border border-brand-700/30 hover:border-brand-500/50 transition-all duration-300 hover:-translate-y-1 reveal-up delay-200">
+                    <div class="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors"><i class="fas fa-tools"></i></div>
+                    <h4 class="text-xl font-bold text-white mb-3">Property Maintenance</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Proactive and reactive maintenance for commercial, residential, and institutional portfolios.</p>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-orange-500"></i> Roofing & Ceiling Repairs</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-orange-500"></i> Painting & Restoration</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-orange-500"></i> Preventative Programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="py-24 bg-brand-800 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-500 to-transparent opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative reveal-left order-2 lg:order-1">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-brand-700/50">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop" alt="Construction team" class="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="glass-panel p-4 rounded-xl">
+                                <div class="flex items-center gap-3 mb-2"><div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div><span class="text-xs font-bold text-green-400 uppercase">Live Project Tracking</span></div>
+                                <p class="text-sm text-slate-300">All clients receive real-time updates on repair progress and timelines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-right order-1 lg:order-2">
+                    <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Our Process</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Structured. Transparent. Fast.</h3>
+                    <p class="text-slate-400 mb-8">Our 5-step process ensures zero ambiguity and maximum speed.</p>
+                    <div class="space-y-8">
+                        <div class="flex gap-4 group"><div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-900 border border-brand-700 flex items-center justify-center text-brand-400 font-bold group-hover:bg-brand-500 group-hover:text-white group-hover:border-brand-500 transition-colors">1</div><div><h4 class="text-lg font-bold text-white">Rapid Site Inspection</h4><p class="text-slate-400 text-sm">Deploy within hours to secure the site.</p></div></div>
+                        <div class="flex gap-4 group"><div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-900 border border-brand-700 flex items-center justify-center text-brand-400 font-bold group-hover:bg-brand-500 group-hover:text-white group-hover:border-brand-500 transition-colors">2</div><div><h4 class="text-lg font-bold text-white">Damage Assessment</h4><p class="text-slate-400 text-sm">Photographic documentation and scope definition.</p></div></div>
+                        <div class="flex gap-4 group"><div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-900 border border-brand-700 flex items-center justify-center text-brand-400 font-bold group-hover:bg-brand-500 group-hover:text-white group-hover:border-brand-500 transition-colors">3</div><div><h4 class="text-lg font-bold text-white">Quotation & Approval</h4><p class="text-slate-400 text-sm">Transparent costing submitted to stakeholders.</p></div></div>
+                        <div class="flex gap-4 group"><div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-900 border border-brand-700 flex items-center justify-center text-brand-400 font-bold group-hover:bg-brand-500 group-hover:text-white group-hover:border-brand-500 transition-colors">4</div><div><h4 class="text-lg font-bold text-white">Execution</h4><p class="text-slate-400 text-sm">Restore property to pre-loss condition.</p></div></div>
+                        <div class="flex gap-4 group"><div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-900 border border-brand-700 flex items-center justify-center text-brand-400 font-bold group-hover:bg-brand-500 group-hover:text-white group-hover:border-brand-500 transition-colors">5</div><div><h4 class="text-lg font-bold text-white">Sign-off & Reporting</h4><p class="text-slate-400 text-sm">Quality check for full insurance closure.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Preview (links to work.html) -->
+    <section class="py-24 bg-brand-900 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal-up">
+                <div class="max-w-2xl">
+                    <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Featured Projects</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">A Portfolio of Excellence</h3>
+                    <p class="text-slate-400">A selection of our recent work across insurance reinstatement, civil construction, and maintenance.</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="work.html" class="text-brand-400 hover:text-white font-semibold flex items-center gap-2 transition text-lg">View All Projects <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" onclick="window.location.href='work.html'">
+                    <div class="project-img-wrapper h-64 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Fire Reinstatement" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold backdrop-blur-sm">Insurance</div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 z-20"><p class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-1">Durban, KZN</p><h4 class="text-xl font-bold text-white">Commercial Fire Reinstatement</h4></div>
+                </div>
+                <div class="group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up delay-100" onclick="window.location.href='work.html'">
+                    <div class="project-img-wrapper h-64 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?q=80&w=2070&auto=format&fit=crop" alt="Earthworks" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold backdrop-blur-sm">Civil Works</div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 z-20"><p class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-1">Mpumalanga</p><h4 class="text-xl font-bold text-white">Bulk Earthworks & Access Road</h4></div>
+                </div>
+                <div class="group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up delay-200" onclick="window.location.href='work.html'">
+                    <div class="project-img-wrapper h-64 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <img src="https://images.unsplash.com/photo-1621905251918-4841cbae5668?q=80&w=2069&auto=format&fit=crop" alt="Roof Maintenance" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 text-xs font-bold backdrop-blur-sm">Maintenance</div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 z-20"><p class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-1">Johannesburg, GP</p><h4 class="text-xl font-bold text-white">Warehouse Roof Restoration</h4></div>
+                </div>
+            </div>
+            <div class="text-center mt-12 reveal-up">
+                <a href="work.html" class="inline-flex items-center gap-3 px-10 py-4 bg-brand-800 hover:bg-brand-700 border border-brand-700 text-white font-bold rounded-xl transition text-lg group">
+                    View All Projects <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage -->
+    <section id="coverage" class="py-24 bg-brand-800 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal-left">
+                    <div class="glass-panel p-8 rounded-2xl border border-brand-700/30">
+                        <h4 class="text-xl font-bold text-white mb-6">Who We Partner With</h4>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-brand-400 shrink-0"><i class="fas fa-building"></i></div><div><h5 class="font-bold text-white">Property Managers</h5><p class="text-sm text-slate-400">Emergency response for residential and commercial complexes.</p></div></div>
+                            <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0"><i class="fas fa-shield-alt"></i></div><div><h5 class="font-bold text-white">Insurance Sector</h5><p class="text-sm text-slate-400">Direct partnerships with brokers and major insurers.</p></div></div>
+                            <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400 shrink-0"><i class="fas fa-landmark"></i></div><div><h5 class="font-bold text-white">Government & Municipalities</h5><p class="text-sm text-slate-400">Compliant civil works on time and on budget.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">National Footprint</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Operating Across South Africa</h3>
+                    <p class="text-slate-400 mb-8">Our teams service major projects in KZN, Gauteng, Mpumalanga, and the Eastern Cape.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-brand-accent shadow-[0_0_10px_#10B981]"></div><span class="font-semibold text-white">KwaZulu-Natal</span></div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_#EAB308]"></div><span class="font-semibold text-white">Gauteng</span></div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-brand-400 shadow-[0_0_10px_#818CF8]"></div><span class="font-semibold text-white">Mpumalanga</span></div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_10px_#F97316]"></div><span class="font-semibold text-white">Eastern Cape</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-brand-900 border-y border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up"><h2 class="text-3xl font-bold text-white">Trusted by Industry Leaders</h2></div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-brand-800 rounded-xl border border-brand-700/30 reveal-up"><div class="flex text-yellow-500 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-300 italic mb-6">"Exceptional response time and professional insurance handling."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-700 flex items-center justify-center text-white font-bold">S</div><div><h5 class="text-white font-bold text-sm">Property Manager</h5><p class="text-slate-500 text-xs">Durban, KZN</p></div></div></div>
+                <div class="p-6 bg-brand-800 rounded-xl border border-brand-700/30 reveal-up delay-100"><div class="flex text-yellow-500 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-300 italic mb-6">"Delivered our access road ahead of schedule. Highly recommended."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-700 flex items-center justify-center text-white font-bold">M</div><div><h5 class="text-white font-bold text-sm">Municipal Director</h5><p class="text-slate-500 text-xs">KwaZulu-Natal</p></div></div></div>
+                <div class="p-6 bg-brand-800 rounded-xl border border-brand-700/30 reveal-up delay-200"><div class="flex text-yellow-500 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-300 italic mb-6">"Reliable, compliant, and transparent. A key approved contractor."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-700 flex items-center justify-center text-white font-bold">L</div><div><h5 class="text-white font-bold text-sm">Loss Adjuster</h5><p class="text-slate-500 text-xs">National Firm</p></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-24 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="reveal-left">
+                    <h2 class="text-brand-500 font-bold tracking-wide uppercase text-sm mb-3">Get In Touch</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Request a Free Assessment</h3>
+                    <p class="text-gray-500 text-lg mb-8 leading-relaxed">Fill out the form and our team will respond within 2 hours.</p>
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 shrink-0"><i class="fas fa-phone text-lg"></i></div><div><h5 class="font-bold text-gray-900">Call Us</h5><a href="tel:0832486384" class="text-brand-600 hover:underline font-semibold">083 248 6384</a></div></div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 shrink-0"><i class="fas fa-envelope text-lg"></i></div><div><h5 class="font-bold text-gray-900">Email Us</h5><a href="mailto:info@abaphumeleli.co.za" class="text-brand-600 hover:underline font-semibold">info@abaphumeleli.co.za</a></div></div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0"><i class="fas fa-clock text-lg"></i></div><div><h5 class="font-bold text-gray-900">Response Time</h5><p class="text-gray-500">Within <span class="font-bold text-emerald-600">2 hours</span> — 24/7 for emergencies</p></div></div>
+                    </div>
+                    <div class="flex items-center gap-6 pt-6 border-t border-gray-200">
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-check-circle text-brand-accent"></i> Free Quotes</div>
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-check-circle text-brand-accent"></i> Fully Insured</div>
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-check-circle text-brand-accent"></i> CIDB Registered</div>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-lg">
+                        <form onsubmit="event.preventDefault(); handleFormSubmit();" class="space-y-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label class="block text-xs font-semibold text-gray-600 mb-1.5">Full Name *</label><input type="text" required class="w-full px-4 py-3 rounded-lg input-field-light text-sm" placeholder="John Doe"></div>
+                                <div><label class="block text-xs font-semibold text-gray-600 mb-1.5">Phone *</label><input type="tel" required class="w-full px-4 py-3 rounded-lg input-field-light text-sm" placeholder="083 248 6384"></div>
+                            </div>
+                            <div><label class="block text-xs font-semibold text-gray-600 mb-1.5">Email *</label><input type="email" required class="w-full px-4 py-3 rounded-lg input-field-light text-sm" placeholder="john@company.co.za"></div>
+                            <div><label class="block text-xs font-semibold text-gray-600 mb-1.5">Service Required</label><select class="w-full px-4 py-3 rounded-lg input-field-light text-sm appearance-none cursor-pointer"><option>Insurance Reinstatement</option><option>Property Maintenance</option><option>Civil / Municipal Works</option><option>General Enquiry</option></select></div>
+                            <div><label class="block text-xs font-semibold text-gray-600 mb-1.5">Project Details</label><textarea rows="4" class="w-full px-4 py-3 rounded-lg input-field-light text-sm" placeholder="Brief description..."></textarea></div>
+                            <button type="submit" class="w-full py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-lg transition shadow-glow text-lg">Submit My Enquiry</button>
+                            <p class="text-[11px] text-center text-gray-400 mt-2"><i class="fas fa-lock mr-1"></i> Your information is secure.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6"><img src="logo.png" alt="Logo" class="h-10 w-auto"><div><h2 class="text-lg font-extrabold text-gray-900 leading-none">ABAPHUMELELI</h2><p class="text-[9px] text-brand-500 font-semibold tracking-[0.2em] uppercase">Trading 157 CC</p></div></div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">CIDB-registered construction company specialising in civil works, building construction, and rapid insurance reinstatement.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-white hover:bg-brand-500 hover:border-brand-500 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-white hover:bg-brand-500 hover:border-brand-500 transition"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div><h4 class="text-gray-900 font-bold mb-6">Services</h4><ul class="space-y-3 text-sm text-gray-500"><li><a href="#services" class="hover:text-brand-600 transition">Civil Construction</a></li><li><a href="#services" class="hover:text-brand-600 transition">Insurance Reinstatement</a></li><li><a href="#services" class="hover:text-brand-600 transition">Property Maintenance</a></li><li><a href="work.html" class="hover:text-brand-600 transition">Our Portfolio</a></li></ul></div>
+                <div><h4 class="text-gray-900 font-bold mb-6">Contact</h4><ul class="space-y-3 text-sm text-gray-500"><li class="flex items-start gap-3"><i class="fas fa-phone mt-1 text-brand-500"></i><span>083 248 6384</span></li><li class="flex items-start gap-3"><i class="fas fa-envelope mt-1 text-brand-500"></i><span>info@abaphumeleli.co.za</span></li><li class="flex items-start gap-3"><i class="fas fa-globe mt-1 text-brand-500"></i><span>www.abaphumeleli.co.za</span></li></ul></div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-400">© Abaphumeleli Trading 157 CC. All rights reserved. CK: 2004/010055/23 | VAT: 4540217298</p>
+                <div class="flex gap-6 text-xs text-gray-400"><a href="#" class="hover:text-brand-600 transition">Privacy Policy</a><a href="#" class="hover:text-brand-600 transition">Terms of Service</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="tel:0832486384" class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-brand-500 text-white rounded-full shadow-glow-lg flex items-center justify-center text-xl z-50 animate-bounce"><i class="fas fa-phone"></i></a>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); });
+        gsap.utils.toArray('.reveal-up').forEach(el => { gsap.to(el, { scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" }, y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }); });
+        gsap.utils.toArray('.reveal-left').forEach(el => { gsap.to(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 0, opacity: 1, duration: 1, ease: "power3.out" }); });
+        gsap.utils.toArray('.reveal-right').forEach(el => { gsap.to(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 0, opacity: 1, duration: 1, ease: "power3.out" }); });
+        function handleFormSubmit() {
+            const b = document.querySelector('form button'); const t = b.innerText;
+            b.innerText = "Sending..."; b.classList.add('opacity-75', 'cursor-not-allowed');
+            setTimeout(() => { b.innerText = "✓ Sent Successfully!"; b.classList.remove('bg-brand-500','hover:bg-brand-600'); b.classList.add('bg-green-600','hover:bg-green-700');
+                setTimeout(() => { b.innerText = t; b.classList.remove('bg-green-600','hover:bg-green-700','opacity-75','cursor-not-allowed'); b.classList.add('bg-brand-500','hover:bg-brand-600'); document.querySelector('form').reset(); }, 3000);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
