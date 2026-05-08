@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Work — Abaphumeleli Trading | Projects Portfolio</title>
-    <meta name="description" content="Browse Abaphumeleli Trading's completed projects: insurance reinstatement, civil construction, and property maintenance across South Africa.">
+    <meta name="description" content="Browse Abaphumeleli Trading's completed projects: municipal construction, water infrastructure, and institutional maintenance across KwaZulu-Natal.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,59 +43,57 @@
         ::-webkit-scrollbar-thumb:hover { background: #6366F1; }
         .text-gradient-blue { background: linear-gradient(135deg, #A5B4FC 0%, #6366F1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .reveal-up { opacity: 0; transform: translateY(30px); }
-        .project-img-wrapper { overflow: hidden; }
-        .project-img-wrapper img { transition: transform 0.7s ease; }
-        .group:hover .project-img-wrapper img { transform: scale(1.1); }
         #navbar { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
         #navbar.scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06); }
-
-        /* Filter Buttons */
-        .filter-btn { transition: all 0.3s ease; }
-        .filter-btn.active { background-color: #6366F1; color: white; border-color: #6366F1; }
-
-        /* Project Cards */
-        .project-card { transition: all 0.4s ease; }
-        .project-card.hidden-card { display: none; }
-
-        /* Page Header */
         .page-header {
             background: linear-gradient(135deg, #0B1120 0%, #131B2E 50%, #1E2D4A 100%);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
         .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
+            content: ''; position: absolute; top: 0; right: 0;
             width: 50%; height: 100%;
             background: radial-gradient(circle at 70% 50%, rgba(99,102,241,0.08), transparent 60%);
         }
+        .stat-pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+        
+        /* Gallery lightbox overlay */
+        .gallery-thumb { cursor: pointer; overflow: hidden; border-radius: 0.75rem; }
+        .gallery-thumb img { transition: transform 0.5s ease; }
+        .gallery-thumb:hover img { transform: scale(1.08); }
+        
+        /* No-image placeholder */
+        .no-image-placeholder {
+            background: linear-gradient(135deg, #131B2E 0%, #1E2D4A 100%);
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+        }
+        
 
-        /* Stat pill */
-        .stat-pill {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+        /* Scroll to Top Button */
+        #scroll-top-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Navigation (same as main) -->
+    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 top-0 border-b border-gray-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="logo.png" alt="Abaphumeleli Trading Logo" class="h-12 w-auto group-hover:scale-105 transition-transform duration-300">
-                    <div>
+                    <img src="logo.png" alt="Abaphumeleli Trading Logo" class="h-16 w-auto group-hover:scale-105 transition-transform duration-300">
+                    <!--<div>
                         <h1 class="text-lg font-extrabold text-gray-900 tracking-tight leading-none">ABAPHUMELELI</h1>
                         <p class="text-[10px] text-brand-500 font-semibold tracking-[0.2em] uppercase">Trading 157 CC</p>
-                    </div>
+                    </div>-->
                 </a>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="index.html#services" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Services</a>
                     <a href="index.html#process" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Process</a>
                     <a href="work.html" class="text-sm font-medium text-brand-600 border-b-2 border-brand-500 pb-1">Our Work</a>
+                    <a href="about.html" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">About</a>
                     <a href="index.html#coverage" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Coverage</a>
                 </div>
                 <div class="hidden md:flex items-center gap-4">
@@ -110,6 +108,7 @@
                 <a href="index.html#services" class="text-gray-700 hover:text-brand-600 font-medium">Services</a>
                 <a href="index.html#process" class="text-gray-700 hover:text-brand-600 font-medium">Process</a>
                 <a href="work.html" class="text-brand-600 font-bold">Our Work</a>
+                <a href="about.html" class="text-gray-700 hover:text-brand-600 font-medium">About</a>
                 <a href="index.html#coverage" class="text-gray-700 hover:text-brand-600 font-medium">Coverage</a>
                 <a href="index.html#contact" class="inline-flex items-center justify-center px-5 py-3 bg-brand-500 text-white font-bold rounded-lg shadow-glow">Get a Quote</a>
             </div>
@@ -117,248 +116,271 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header pt-32 pb-20 lg:pt-40 lg:pb-24 relative">
+    <section class="page-header pt-32 pb-16 lg:pt-40 lg:pb-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                <!-- Breadcrumb -->
                 <div class="flex items-center gap-2 text-sm text-slate-400 mb-6">
                     <a href="index.html" class="hover:text-white transition">Home</a>
                     <i class="fas fa-chevron-right text-[10px] text-slate-600"></i>
                     <span class="text-brand-400">Our Work</span>
                 </div>
-
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
                     Our <span class="text-gradient-blue">Portfolio</span>
                 </h1>
                 <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mb-10">
-                    Explore our completed projects across insurance reinstatement, civil construction, and property maintenance. Every project reflects our commitment to quality, speed, and transparency.
+                    Real projects delivered for municipal clients across KwaZulu-Natal. From new building construction to water infrastructure and school maintenance.
                 </p>
-
-                <!-- Stats Row -->
                 <div class="flex flex-wrap gap-4">
                     <div class="stat-pill px-5 py-3 rounded-xl flex items-center gap-3">
-                        <i class="fas fa-hard-hat text-brand-400"></i>
-                        <div><span class="text-white font-bold">500+</span> <span class="text-slate-400 text-sm">Projects Completed</span></div>
+                        <i class="fas fa-landmark text-brand-400"></i>
+                        <div><span class="text-white font-bold">Municipal</span> <span class="text-slate-400 text-sm">Clients</span></div>
                     </div>
                     <div class="stat-pill px-5 py-3 rounded-xl flex items-center gap-3">
                         <i class="fas fa-map-marker-alt text-brand-accent"></i>
-                        <div><span class="text-white font-bold">4</span> <span class="text-slate-400 text-sm">Provinces</span></div>
+                        <div><span class="text-white font-bold">KZN</span> <span class="text-slate-400 text-sm">Based</span></div>
                     </div>
                     <div class="stat-pill px-5 py-3 rounded-xl flex items-center gap-3">
-                        <i class="fas fa-calendar-check text-orange-400"></i>
-                        <div><span class="text-white font-bold">20+</span> <span class="text-slate-400 text-sm">Years Experience</span></div>
+                        <i class="fas fa-check-circle text-emerald-400"></i>
+                        <div><span class="text-white font-bold">CIDB</span> <span class="text-slate-400 text-sm">Registered</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Filter & Projects -->
-    <section class="py-16 bg-brand-900">
+    <!-- ========================================== -->
+    <!-- PROJECT 1: KwaDukuza Municipal Building -->
+    <!-- ========================================== -->
+    <section class="py-16 bg-brand-900 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left: Image/Placeholder -->
+                <div class="reveal-up">
+                    <div class="rounded-2xl overflow-hidden border border-brand-700/50 h-80 lg:h-96 no-image-placeholder">
+                        <i class="fas fa-building text-6xl text-brand-700 mb-4"></i>
+                        <p class="text-brand-700 text-sm font-semibold uppercase tracking-wider">Project Completed</p>
+                        <p class="text-slate-500 text-xs mt-1">Photos coming soon</p>
+                    </div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="reveal-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold">Civil Works</span>
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+                            <i class="fas fa-check-circle mr-1"></i>Completed
+                        </span>
+                    </div>
+
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
+                        Construction of New Ward 23 Nkobongo Municipal Administration Building
+                    </h2>
+                    
+                    <p class="text-brand-400 font-semibold text-lg mb-6">KwaDukuza Municipality</p>
+
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        New-build construction of a municipal administration building in Ward 23, Nkobongo, for the KwaDukuza Local Municipality. The project encompassed full structural construction, finishes, and handover to the client for public administrative services.
+                    </p>
+
+                    <!-- Project Meta -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 rounded-xl bg-brand-800 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Client</div>
+                            <div class="text-white font-bold">KwaDukuza Municipality</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-800 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Category</div>
+                            <div class="text-white font-bold">New Building Construction</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-800 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Completion Date</div>
+                            <div class="text-white font-bold">18 February 2022</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-800 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Location</div>
+                            <div class="text-white font-bold">Nkobongo, KZN</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-800 border border-brand-700/30 text-xs text-slate-300">Structural Construction</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-800 border border-brand-700/30 text-xs text-slate-300">Municipal Building</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-800 border border-brand-700/30 text-xs text-slate-300">Government Client</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-800 border border-brand-700/30 text-xs text-slate-300">Full Build</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PROJECT 2: Umhlabuyalingana Water Treatment -->
+    <!-- ========================================== -->
+    <section class="py-16 bg-brand-800 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                <!-- Left: Details -->
+                <div class="reveal-up order-2 lg:order-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold">Civil Works</span>
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+                            <i class="fas fa-check-circle mr-1"></i>Completed
+                        </span>
+                    </div>
+
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
+                        Refurbishment of Driefontein Water Treatment Works: Bulk Water & Sanitation
+                    </h2>
+                    
+                    <p class="text-brand-400 font-semibold text-lg mb-6">Umhlabuyalingana Local Municipality</p>
+
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Major refurbishment of the Driefontein Water Treatment Works, covering bulk water supply systems and sanitation infrastructure. This project involved rehabilitation of existing treatment capacity, pipework upgrades, and ensuring compliant water quality delivery to surrounding communities.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Client</div>
+                            <div class="text-white font-bold">Umhlabuyalingana Municipality</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Category</div>
+                            <div class="text-white font-bold">Water & Sanitation</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Project Duration</div>
+                            <div class="text-white font-bold">Jul 2024 — May 2025</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Completion Date</div>
+                            <div class="text-white font-bold">23 May 2025</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-900 border border-brand-700/30 text-xs text-slate-300">Water Treatment</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-900 border border-brand-700/30 text-xs text-slate-300">Bulk Water Supply</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-900 border border-brand-700/30 text-xs text-slate-300">Sanitation</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-900 border border-brand-700/30 text-xs text-slate-300">Refurbishment</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-900 border border-brand-700/30 text-xs text-slate-300">10 Months</span>
+                    </div>
+                </div>
+
+                <!-- Right: Image/Placeholder -->
+                <div class="reveal-up order-1 lg:order-2">
+                    <div class="rounded-2xl overflow-hidden border border-brand-700/50 h-80 lg:h-96 no-image-placeholder">
+                        <i class="fas fa-water text-6xl text-brand-700 mb-4"></i>
+                        <p class="text-brand-700 text-sm font-semibold uppercase tracking-wider">Project Completed</p>
+                        <p class="text-slate-500 text-xs mt-1">Photos coming soon</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PROJECT 3: School Renovation (with photos) -->
+    <!-- ========================================== -->
+    <section class="py-16 bg-brand-900 border-t border-brand-700/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Filter Tabs -->
-            <div class="flex flex-wrap gap-3 mb-12 reveal-up">
-                <button class="filter-btn active px-6 py-3 rounded-full border border-brand-700 text-sm font-bold" data-filter="all">
-                    All Projects
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-full border border-brand-700 text-sm font-bold text-slate-300 hover:text-white hover:border-brand-500" data-filter="insurance">
-                    <i class="fas fa-shield-alt mr-2 text-emerald-400"></i>Insurance Claims
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-full border border-brand-700 text-sm font-bold text-slate-300 hover:text-white hover:border-brand-500" data-filter="civil">
-                    <i class="fas fa-road mr-2 text-brand-400"></i>Civil Works
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-full border border-brand-700 text-sm font-bold text-slate-300 hover:text-white hover:border-brand-500" data-filter="maintenance">
-                    <i class="fas fa-tools mr-2 text-orange-400"></i>Maintenance
-                </button>
+            <!-- Header -->
+            <div class="max-w-3xl mb-12 reveal-up">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 text-xs font-bold">Maintenance</span>
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+                        <i class="fas fa-check-circle mr-1"></i>Completed
+                    </span>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
+                    School Renovation: Painting, Plumbing & Sanitation Upgrade
+                </h2>
+                
+                <p class="text-brand-400 font-semibold text-lg mb-4">KwaZulu-Natal</p>
+
+                <p class="text-slate-400 leading-relaxed mb-6">
+                    Complete school renovation including interior and exterior painting, plumbing repairs, pipe replacement, and installation of new sinks and toilets. The project improved sanitation facilities and restored the building's condition for learners and staff.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <div class="p-3 rounded-lg bg-brand-800 border border-brand-700/30 flex items-center gap-2">
+                        <i class="fas fa-paint-roller text-orange-400"></i>
+                        <span class="text-white text-sm font-semibold">Painting</span>
+                    </div>
+                    <div class="p-3 rounded-lg bg-brand-800 border border-brand-700/30 flex items-center gap-2">
+                        <i class="fas fa-wrench text-brand-400"></i>
+                        <span class="text-white text-sm font-semibold">Pipe Repairs</span>
+                    </div>
+                    <div class="p-3 rounded-lg bg-brand-800 border border-brand-700/30 flex items-center gap-2">
+                        <i class="fas fa-sink text-emerald-400"></i>
+                        <span class="text-white text-sm font-semibold">New Sinks</span>
+                    </div>
+                    <div class="p-3 rounded-lg bg-brand-800 border border-brand-700/30 flex items-center gap-2">
+                        <i class="fas fa-toilet text-blue-400"></i>
+                        <span class="text-white text-sm font-semibold">New Toilets</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Projects Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-
-                <!-- Project 1 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="insurance">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Fire Reinstatement" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold backdrop-blur-sm">Insurance Claim</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <i class="fas fa-map-marker-alt text-brand-400 text-xs"></i>
-                            <span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Durban, KZN</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Commercial Fire Reinstatement</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Complete structural rebuilding, roofing, and interior finishing following severe fire damage to a retail complex. Full insurance liaison handled.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 8 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-ruler-combined"></i> 1,200 sqm</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+            <!-- Photo Gallery -->
+            <!--
+                =============================================
+                HOW TO USE YOUR PHOTOS:
+                
+                1. Name your school photos: school-1.jpg, school-2.jpg, school-3.jpg, etc.
+                2. Place them in the same folder as this HTML file.
+                3. Add or remove gallery-thumb divs below as needed.
+                4. Each photo should ideally be at least 800px wide.
+                =============================================
+            -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 reveal-up">
+                
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (1).jpeg" alt="School renovation - painting" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="civil">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?q=80&w=2070&auto=format&fit=crop" alt="Earthworks" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold backdrop-blur-sm">Civil Works</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Mpumalanga</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Bulk Earthworks & Access Road</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Site clearing, stormwater drainage, and re-gravelling of a 5km access road for local municipality infrastructure development.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 12 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-road"></i> 5km Road</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (7).jpeg" alt="School renovation - plumbing" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="maintenance">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1621905251918-4841cbae5668?q=80&w=2069&auto=format&fit=crop" alt="Roof Maintenance" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 text-xs font-bold backdrop-blur-sm">Maintenance</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Johannesburg, GP</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Warehouse Roof Restoration</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Preventative maintenance, waterproofing, and structural repairs for a 10,000 sqm industrial facility.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 6 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-ruler-combined"></i> 10,000 sqm</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (2).jpeg" alt="School renovation - sinks" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
-                <!-- Project 4 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="insurance">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1533481405265-e9ce0c044abb?q=80&w=2071&auto=format&fit=crop" alt="Flood Damage" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold backdrop-blur-sm">Insurance Claim</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Gqeberha, EC</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Post-Storm Flood Recovery</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Rapid extraction, drying, and complete reinstatement of ceilings, flooring, and electrical systems in a residential complex.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 4 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-home"></i> 24 Units</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (3).jpeg" alt="School renovation - toilets" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
-                <!-- Project 5 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="civil">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?q=80&w=2070&auto=format&fit=crop" alt="Sports Field" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold backdrop-blur-sm">Civil Works</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Richards Bay, KZN</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Municipal Sports Facility</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Community sports field including levelling, drainage installation, and gabion retaining walls for the local municipality.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 16 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-ruler-combined"></i> 8,000 sqm</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (4).jpeg" alt="School renovation - exterior" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
-                <!-- Project 6 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="maintenance">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop" alt="Plumbing" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 text-xs font-bold backdrop-blur-sm">Maintenance</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Pretoria, GP</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Institutional Plumbing Upgrade</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Complete replacement of aging plumbing infrastructure and cosmetic repairs for a government department building.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 10 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-building"></i> 3 Floors</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (11).jpeg" alt="School renovation - interior" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
-                <!-- Project 7 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="insurance">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=2032&auto=format&fit=crop" alt="Water Damage" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold backdrop-blur-sm">Insurance Claim</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Pinetown, KZN</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Burst Pipe Water Damage Repair</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Emergency response to a major burst pipe causing extensive water damage across multiple residential units. Full drying, stripping, and reinstatement.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 3 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-home"></i> 8 Units</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (5).jpeg" alt="School renovation - progress" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
-                <!-- Project 8 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="civil">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?q=80&w=2067&auto=format&fit=crop" alt="Stormwater" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold backdrop-blur-sm">Civil Works</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Nelspruit, MP</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Stormwater Drainage System</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Design and installation of a comprehensive stormwater management system for a new residential development including channels, culverts, and catch pits.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 14 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-water"></i> 3km Network</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 9 -->
-                <div class="project-card group relative rounded-2xl bg-brand-800 border border-brand-700/50 overflow-hidden cursor-pointer reveal-up" data-category="maintenance">
-                    <div class="project-img-wrapper h-72 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/30 to-transparent z-10 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?q=80&w=2071&auto=format&fit=crop" alt="Painting" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 text-xs font-bold backdrop-blur-sm">Maintenance</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3"><i class="fas fa-map-marker-alt text-brand-400 text-xs"></i><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Umhlanga, KZN</span></div>
-                        <h4 class="text-xl font-bold text-white mb-2">Commercial Complex Repaint</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Full exterior and interior repaint of a 50-unit commercial complex including surface preparation, waterproofing, and finishing coats.</p>
-                        <div class="flex items-center gap-4 pt-4 border-t border-brand-700/30">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-clock"></i> 5 Weeks</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i class="fas fa-building"></i> 50 Units</div>
-                            <div class="flex items-center gap-2 text-xs text-emerald-500"><i class="fas fa-check-circle"></i> Completed</div>
-                        </div>
-                    </div>
+                <div class="gallery-thumb h-48 md:h-56 rounded-xl border border-brand-700/50 overflow-hidden">
+                    <img src="school-1 (8).jpeg" alt="School renovation - completed" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full no-image-placeholder flex items-center justify-center\'><i class=\'fas fa-image text-3xl text-brand-700\'></i></div>'">
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- CTA Banner -->
+    <!-- CTA -->
     <section class="py-20 bg-brand-800 border-t border-brand-700/30">
         <div class="max-w-4xl mx-auto px-4 text-center reveal-up">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Have a Project in Mind?</h2>
-            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">Whether it's an emergency insurance claim or a planned civil works project, we're ready to deliver quality results on time.</p>
+            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">Whether it's municipal construction, water infrastructure, or property maintenance — we deliver quality results on time.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="index.html#contact" class="px-10 py-5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-xl transition shadow-glow text-lg flex items-center justify-center gap-2 group">
                     Get a Free Quote <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -375,18 +397,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-3 mb-6"><img src="logo.png" alt="Logo" class="h-10 w-auto"><div><h2 class="text-lg font-extrabold text-gray-900 leading-none">ABAPHUMELELI</h2><p class="text-[9px] text-brand-500 font-semibold tracking-[0.2em] uppercase">Trading 157 CC</p></div></div>
+                    <div class="flex items-center gap-3 mb-6"><img src="logo.png" alt="Logo" class="h-16 w-auto"></div>
                     <p class="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">CIDB-registered construction company specialising in civil works, building construction, and rapid insurance reinstatement.</p>
                     <div class="flex gap-3">
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-white hover:bg-brand-500 hover:border-brand-500 transition"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-white hover:bg-brand-500 hover:border-brand-500 transition"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
-                <div><h4 class="text-gray-900 font-bold mb-6">Quick Links</h4><ul class="space-y-3 text-sm text-gray-500"><li><a href="index.html" class="hover:text-brand-600 transition">Home</a></li><li><a href="index.html#services" class="hover:text-brand-600 transition">Services</a></li><li><a href="work.html" class="hover:text-brand-600 transition font-semibold text-brand-600">Our Work</a></li><li><a href="index.html#contact" class="hover:text-brand-600 transition">Contact</a></li></ul></div>
+                <div><h4 class="text-gray-900 font-bold mb-6">Quick Links</h4><ul class="space-y-3 text-sm text-gray-500"><li><a href="index.html" class="hover:text-brand-600 transition">Home</a></li><li><a href="index.html#services" class="hover:text-brand-600 transition">Services</a></li><li><a href="work.html" class="hover:text-brand-600 transition font-semibold text-brand-600">Our Work</a></li><li><a href="about.html" class="hover:text-brand-600 transition ">About Us</a></li><li><a href="index.html#contact" class="hover:text-brand-600 transition">Contact</a></li></ul></div>
                 <div><h4 class="text-gray-900 font-bold mb-6">Contact</h4><ul class="space-y-3 text-sm text-gray-500"><li class="flex items-start gap-3"><i class="fas fa-phone mt-1 text-brand-500"></i><span>083 248 6384</span></li><li class="flex items-start gap-3"><i class="fas fa-envelope mt-1 text-brand-500"></i><span>info@abaphumeleli.co.za</span></li><li class="flex items-start gap-3"><i class="fas fa-globe mt-1 text-brand-500"></i><span>www.abaphumeleli.co.za</span></li></ul></div>
             </div>
             <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-gray-400">© Abaphumeleli Trading 157 CC. All rights reserved. CK: 2004/010055/23 | VAT: 4540217298</p>
+                <p class="text-xs text-gray-400">© Abaphumeleli Trading 57 CC. All rights reserved. CK: 2004/010055/23 | VAT: 4540217298</p>
                 <div class="flex gap-6 text-xs text-gray-400"><a href="#" class="hover:text-brand-600 transition">Privacy Policy</a><a href="#" class="hover:text-brand-600 transition">Terms of Service</a></div>
             </div>
         </div>
@@ -394,56 +416,32 @@
 
     <a href="tel:0832486384" class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-brand-500 text-white rounded-full shadow-glow-lg flex items-center justify-center text-xl z-50 animate-bounce"><i class="fas fa-phone"></i></a>
 
+    <!-- Scroll to Top Button -->
+<button id="scroll-top-btn" class="fixed bottom-6 left-6 w-12 h-12 bg-brand-500 hover:bg-brand-600 text-white rounded-full shadow-glow flex items-center justify-center text-lg z-50 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
     <script>
         gsap.registerPlugin(ScrollTrigger);
-
-        // Mobile menu
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
-
-        // Navbar scroll
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-        });
-
-        // Reveal animations
+        window.addEventListener('scroll', () => { if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); });
         gsap.utils.toArray('.reveal-up').forEach(el => {
-            gsap.to(el, {
-                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
-                y: 0, opacity: 1, duration: 0.8, ease: "power3.out"
-            });
+            gsap.to(el, { scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" }, y: 0, opacity: 1, duration: 0.8, ease: "power3.out" });
         });
 
-        // ============ PROJECT FILTER ============
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active state
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.classList.remove('hidden-card');
-                        // Re-animate
-                        gsap.fromTo(card, 
-                            { opacity: 0, y: 20 }, 
-                            { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
-                        );
-                    } else {
-                        card.classList.add('hidden-card');
-                    }
-                });
-            });
-        });
+        // Scroll to Top Button
+const scrollTopBtn = document.getElementById('scroll-top-btn');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+});
     </script>
 </body>
 </html>

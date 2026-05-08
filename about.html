@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Abaphumeleli Trading 157 CC | CIDB Construction Company</title>
+    <meta name="description" content="Learn about Abaphumeleli Trading 157 CC — a CIDB-registered, Level 3 BBBEE construction company with 20+ years of experience in civil works, insurance reinstatement, and property maintenance.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            900: '#0B1120', 800: '#131B2E', 700: '#1E2D4A',
+                            600: '#4338CA', 500: '#6366F1', 400: '#818CF8',
+                            300: '#A5B4FC', accent: '#10B981',
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(99, 102, 241, 0.2)',
+                        'glow-lg': '0 0 40px rgba(99, 102, 241, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B1120; color: #f8fafc; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B1120; }
+        ::-webkit-scrollbar-thumb { background: #1E2D4A; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366F1; }
+        .glass-panel { background: rgba(19, 27, 46, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); }
+        .text-gradient-blue { background: linear-gradient(135deg, #A5B4FC 0%, #6366F1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .reveal-up { opacity: 0; transform: translateY(30px); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); }
+        .reveal-right { opacity: 0; transform: translateX(30px); }
+        #navbar { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        #navbar.scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06); }
+        .page-header {
+            background: linear-gradient(135deg, #0B1120 0%, #131B2E 50%, #1E2D4A 100%);
+            position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 50%; height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(99,102,241,0.08), transparent 60%);
+        }
+        .page-header::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 40%; height: 60%;
+            background: radial-gradient(circle at 30% 80%, rgba(16,185,129,0.05), transparent 50%);
+        }
+        .stat-pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+        .timeline-line { position: relative; }
+        .timeline-line::before {
+            content: ''; position: absolute; left: 19px; top: 40px; bottom: 0;
+            width: 2px; background: linear-gradient(to bottom, #1E2D4A, transparent);
+        }
+        #scroll-top-btn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 top-0 border-b border-gray-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="logo.png" alt="Abaphumeleli Trading Logo" class="h-16 w-auto group-hover:scale-105 transition-transform duration-300">
+                    <!--<div>
+                        <h1 class="text-lg font-extrabold text-gray-900 tracking-tight leading-none">ABAPHUMELELI</h1>
+                        <p class="text-[10px] text-brand-500 font-semibold tracking-[0.2em] uppercase">Trading 157 CC</p>
+                    </div>-->
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html#services" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Services</a>
+                    <a href="index.html#process" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Process</a>
+                    <a href="work.html" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Our Work</a>
+                    <a href="about.html" class="text-sm font-medium text-brand-600 border-b-2 border-brand-500 pb-1">About</a>
+                    <a href="index.html#coverage" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Coverage</a>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="tel:0832486384" class="text-sm font-bold text-gray-700 hover:text-brand-600 transition flex items-center gap-2"><i class="fas fa-phone text-brand-500"></i> 083 248 6384</a>
+                    <a href="index.html#contact" class="px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold rounded-lg transition shadow-glow">Get a Quote</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 absolute w-full shadow-lg">
+            <div class="px-4 py-6 space-y-4 flex flex-col">
+                <a href="index.html#services" class="text-gray-700 hover:text-brand-600 font-medium">Services</a>
+                <a href="index.html#process" class="text-gray-700 hover:text-brand-600 font-medium">Process</a>
+                <a href="work.html" class="text-gray-700 hover:text-brand-600 font-medium">Our Work</a>
+                <a href="about.html" class="text-brand-600 font-bold">About</a>
+                <a href="index.html#coverage" class="text-gray-700 hover:text-brand-600 font-medium">Coverage</a>
+                <a href="index.html#contact" class="inline-flex items-center justify-center px-5 py-3 bg-brand-500 text-white font-bold rounded-lg shadow-glow">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header pt-32 pb-16 lg:pt-40 lg:pb-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-2 text-sm text-slate-400 mb-6">
+                    <a href="index.html" class="hover:text-white transition">Home</a>
+                    <i class="fas fa-chevron-right text-[10px] text-slate-600"></i>
+                    <span class="text-brand-400">About Us</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                    About <span class="text-gradient-blue">Abaphumeleli</span>
+                </h1>
+                <p class="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                    Two decades of building trust, delivering quality, and empowering communities through construction excellence across KwaZulu-Natal and beyond.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- Our Story -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-900 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left: Image + Logo -->
+                <div class="reveal-left">
+                    <div class="relative">
+                        <div class="rounded-2xl overflow-hidden border border-brand-700/50 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Construction site" class="w-full h-80 lg:h-[450px] object-cover opacity-80">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-transparent to-transparent"></div>
+                        </div>
+                        <!-- Floating logo card -->
+                        <div class="absolute -bottom-6 -right-4 md:right-6 glass-panel p-5 rounded-2xl shadow-xl">
+                            <div class="flex items-center gap-3">
+                                <img src="logo.png" alt="Logo" class="h-12 w-auto">
+                                <div>
+                                    <p class="text-white font-extrabold text-lg leading-none">Est. 2004</p>
+                                    <p class="text-brand-400 text-xs font-semibold">CK: 2004/010055/23</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Story -->
+                <div class="reveal-right">
+                    <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Our Story</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Building South Africa Since 2004</h3>
+                    
+                    <div class="space-y-4 text-slate-400 leading-relaxed">
+                        <p>
+                            <strong class="text-white">Abaphumeleli Trading 57 CC</strong> was founded in 2004 with a clear mission — to deliver high-quality construction services that uplift communities and meet the infrastructure needs of South Africa's growing municipalities.
+                        </p>
+                        <p>
+                            The name "Abaphumeleli" means <strong class="text-brand-400">"The Successful Ones"</strong> in isiZulu — a reflection of our commitment to successful project delivery on every engagement, regardless of scale or complexity.
+                        </p>
+                        <p>
+                            Over the past two decades, we have grown from a small regional contractor into a trusted partner for local government, insurance companies, and property managers across KwaZulu-Natal, Gauteng, Mpumalanga, and the Eastern Cape.
+                        </p>
+                        <p>
+                            Our portfolio includes new municipal building construction, water treatment infrastructure, property maintenance, and rapid insurance reinstatement — all delivered with the same standard of professionalism, transparency, and speed.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- Mission, Vision, Values -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-800 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">What Drives Us</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Mission, Vision & Values</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mission -->
+                <div class="p-8 rounded-2xl bg-brand-900 border border-brand-700/30 hover:border-brand-500/50 transition-all duration-300 reveal-up">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 text-2xl mb-6">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">Our Mission</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        To provide reliable, high-quality construction and maintenance services that exceed client expectations, while creating sustainable employment and contributing to infrastructure development in South Africa.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="p-8 rounded-2xl bg-brand-900 border border-brand-700/30 hover:border-brand-500/50 transition-all duration-300 reveal-up delay-100">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center text-brand-accent text-2xl mb-6">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">Our Vision</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        To be the most trusted construction and reinstatement company in KwaZulu-Natal and South Africa — known for integrity, speed of delivery, and unwavering commitment to quality.
+                    </p>
+                </div>
+
+                <!-- Values -->
+                <div class="p-8 rounded-2xl bg-brand-900 border border-brand-700/30 hover:border-brand-500/50 transition-all duration-300 reveal-up delay-200">
+                    <div class="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl mb-6">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">Our Values</h4>
+                    <ul class="text-slate-400 space-y-3">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-accent text-xs mt-1.5"></i> Integrity in every project</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-accent text-xs mt-1.5"></i> Quality without compromise</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-accent text-xs mt-1.5"></i> Safety as a standard</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-accent text-xs mt-1.5"></i> Community upliftment</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-accent text-xs mt-1.5"></i> Transparency & accountability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- Company Credentials & Numbers -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-900 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Credentials</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Registered. Compliant. Trusted.</h3>
+                <p class="text-slate-400 mt-4">Our registrations and certifications demonstrate our commitment to operating at the highest industry standards.</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 text-center reveal-up">
+                    <div class="text-4xl font-extrabold text-white mb-2">20+</div>
+                    <div class="text-sm text-slate-400">Years in Business</div>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 text-center reveal-up delay-100">
+                    <div class="text-4xl font-extrabold text-brand-accent mb-2">Level 3</div>
+                    <div class="text-sm text-slate-400">BBBEE Contributor</div>
+                </div>
+                <!--<div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 text-center reveal-up delay-200">
+                    <div class="text-4xl font-extrabold text-white mb-2">500+</div>
+                    <div class="text-sm text-slate-400">Projects Delivered</div>
+                </div>-->
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 text-center reveal-up delay-300">
+                    <div class="text-4xl font-extrabold text-white mb-2">4</div>
+                    <div class="text-sm text-slate-400">Provinces Covered</div>
+                </div>
+            </div>
+
+            <!-- Registration Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up">
+                <div class="p-6 rounded-xl bg-brand-800 border border-brand-700/30 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400 shrink-0">
+                        <i class="fas fa-id-card text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold mb-1">CK Number</h5>
+                        <p class="text-slate-400 text-sm">2004/010055/23</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-xl bg-brand-800 border border-brand-700/30 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400 shrink-0">
+                        <i class="fas fa-file-invoice text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold mb-1">VAT Number</h5>
+                        <p class="text-slate-400 text-sm">4540217298</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-xl bg-brand-800 border border-brand-700/30 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+                        <i class="fas fa-hard-hat text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold mb-1">CIDB Registered</h5>
+                        <p class="text-slate-400 text-sm">Construction Industry Development Board</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-xl bg-brand-800 border border-brand-700/30 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400 shrink-0">
+                        <i class="fas fa-award text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold mb-1">BBBEE Level 3</h5>
+                        <p class="text-slate-400 text-sm">Verified Contributor Status</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- What We Do (Services Overview) -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-800 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left: Content -->
+                <div class="reveal-left">
+                    <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">What We Do</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Three Core Disciplines, One Reliable Partner</h3>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        We specialise in three interconnected areas of construction and property services, allowing us to serve as a single point of contact for clients across the public and private sector.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-brand-400 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                                <i class="fas fa-road text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-lg mb-1">Civil Construction</h5>
+                                <p class="text-slate-400 text-sm">Municipal buildings, earthworks, stormwater drainage, access roads, and sports facilities for government and private clients.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                                <i class="fas fa-file-contract text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-lg mb-1">Insurance Reinstatement</h5>
+                                <p class="text-slate-400 text-sm">24/7 emergency response for fire, flood, and storm damage with end-to-end claims management and insurer liaison.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                                <i class="fas fa-tools text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-lg mb-1">Property Maintenance</h5>
+                                <p class="text-slate-400 text-sm">Painting, plumbing, roofing, waterproofing, and preventative maintenance for schools, offices, and residential complexes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="reveal-right">
+                    <div class="rounded-2xl overflow-hidden border border-brand-700/50 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Construction professional" class="w-full h-80 lg:h-[450px] object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- Timeline / Journey -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-900 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Our Journey</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Key Milestones</h3>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-12 timeline-line">
+
+                    <!-- 2004 -->
+                    <div class="flex gap-6 reveal-up">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold text-sm z-10">
+                            <i class="fas fa-flag text-xs"></i>
+                        </div>
+                        <div class="pt-1">
+                            <div class="text-brand-400 font-bold text-sm mb-1">2004</div>
+                            <h4 class="text-xl font-bold text-white mb-2">Company Founded</h4>
+                            <p class="text-slate-400">Abaphumeleli Trading 157 CC registered under CK No: 2004/010055/23. Operations begin in KwaZulu-Natal with a focus on building construction and maintenance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Growth -->
+                    <div class="flex gap-6 reveal-up">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-800 border border-brand-700 flex items-center justify-center text-brand-400 font-bold text-sm z-10">
+                            <i class="fas fa-chart-line text-xs"></i>
+                        </div>
+                        <div class="pt-1">
+                            <div class="text-brand-400 font-bold text-sm mb-1">2008 — 2015</div>
+                            <h4 class="text-xl font-bold text-white mb-2">Growth & Diversification</h4>
+                            <p class="text-slate-400">Expanded into insurance reinstatement, civil works, and water infrastructure. Built strong relationships with municipal clients and insurance companies across the province.</p>
+                        </div>
+                    </div>
+
+                    <!-- CIDB -->
+                    <div class="flex gap-6 reveal-up">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-800 border border-brand-700 flex items-center justify-center text-brand-400 font-bold text-sm z-10">
+                            <i class="fas fa-certificate text-xs"></i>
+                        </div>
+                        <div class="pt-1">
+                            <div class="text-brand-400 font-bold text-sm mb-1">CIDB Registration</div>
+                            <h4 class="text-xl font-bold text-white mb-2">Industry Accreditation</h4>
+                            <p class="text-slate-400">Achieved CIDB registration and Level 3 BBBEE verification, enabling participation in larger government tenders and public infrastructure projects.</p>
+                        </div>
+                    </div>
+
+                    <!-- KwaDukuza -->
+                    <div class="flex gap-6 reveal-up">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-800 border border-brand-700 flex items-center justify-center text-brand-400 font-bold text-sm z-10">
+                            <i class="fas fa-building text-xs"></i>
+                        </div>
+                        <div class="pt-1">
+                            <div class="text-brand-400 font-bold text-sm mb-1">February 2022</div>
+                            <h4 class="text-xl font-bold text-white mb-2">KwaDukuza Municipal Building</h4>
+                            <p class="text-slate-400">Completed the construction of a new Ward 23 Nkobongo Municipal Administration Building for the KwaDukuza Municipality — a landmark public infrastructure project.</p>
+                        </div>
+                    </div>
+
+                    <!-- Umhlabuyalingana -->
+                    <div class="flex gap-6 reveal-up">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white font-bold text-sm z-10">
+                            <i class="fas fa-water text-xs"></i>
+                        </div>
+                        <div class="pt-1">
+                            <div class="text-brand-400 font-bold text-sm mb-1">May 2025</div>
+                            <h4 class="text-xl font-bold text-white mb-2">Driefontein Water Treatment Works</h4>
+                            <p class="text-slate-400">Completed the refurbishment of Driefontein Water Treatment Works for Umhlabuyalingana Local Municipality — a critical bulk water and sanitation infrastructure project spanning 10 months.</p>
+                        </div>
+                    </div>
+
+                    <!-- Future -->
+                    <div class="flex gap-6 reveal-up">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-800 border-2 border-brand-500 border-dashed flex items-center justify-center text-brand-400 font-bold text-sm z-10">
+                            <i class="fas fa-rocket text-xs"></i>
+                        </div>
+                        <div class="pt-1">
+                            <div class="text-brand-400 font-bold text-sm mb-1">Looking Ahead</div>
+                            <h4 class="text-xl font-bold text-white mb-2">Growing Our Impact</h4>
+                            <p class="text-slate-400">Expanding our capacity across all four provinces, investing in equipment, and building partnerships that deliver lasting infrastructure for South African communities.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- Coverage Map -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-800 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal-left">
+                    <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Where We Operate</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">National Reach, Local Expertise</h3>
+                    <p class="text-slate-400 mb-8">While KwaZulu-Natal is our home base and primary area of operation, we have successfully delivered projects across four South African provinces.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-brand-accent shadow-[0_0_10px_#10B981]"></div>
+                            <span class="font-semibold text-white">KwaZulu-Natal</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_#EAB308]"></div>
+                            <span class="font-semibold text-white">Gauteng</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-brand-400 shadow-[0_0_10px_#818CF8]"></div>
+                            <span class="font-semibold text-white">Mpumalanga</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-900 border border-brand-700/30 flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_10px_#F97316]"></div>
+                            <span class="font-semibold text-white">Eastern Cape</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <div class="glass-panel p-8 rounded-2xl border border-brand-700/30">
+                        <h4 class="text-xl font-bold text-white mb-6">Key Municipal Clients</h4>
+                        <div class="space-y-5">
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-900/50 border border-brand-700/20">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400"><i class="fas fa-landmark"></i></div>
+                                <div>
+                                    <h5 class="text-white font-bold">KwaDukuza Municipality</h5>
+                                    <p class="text-slate-500 text-xs">New administration building construction</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-900/50 border border-brand-700/20">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400"><i class="fas fa-landmark"></i></div>
+                                <div>
+                                    <h5 class="text-white font-bold">Umhlabuyalingana Municipality</h5>
+                                    <p class="text-slate-500 text-xs">Water treatment works refurbishment</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-900/50 border border-brand-700/20">
+                                <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400"><i class="fas fa-school"></i></div>
+                                <div>
+                                    <h5 class="text-white font-bold">Institutional Clients</h5>
+                                    <p class="text-slate-500 text-xs">School renovation & sanitation upgrades</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- Why Choose Us -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-900 border-t border-brand-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-brand-400 font-bold tracking-wide uppercase text-sm mb-3">Why Abaphumeleli</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">What Sets Us Apart</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 reveal-up">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 text-xl mb-4"><i class="fas fa-clock"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Speed of Delivery</h4>
+                    <p class="text-slate-400 text-sm">We deploy rapidly and execute efficiently. Our 24/7 availability for emergencies means clients never wait when it matters most.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 reveal-up delay-100">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl mb-4"><i class="fas fa-handshake"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">End-to-End Service</h4>
+                    <p class="text-slate-400 text-sm">From initial assessment through execution to sign-off — we manage the full lifecycle so our clients have a single point of accountability.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 reveal-up delay-200">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-xl mb-4"><i class="fas fa-users"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Experienced Teams</h4>
+                    <p class="text-slate-400 text-sm">Two decades of hands-on experience across civil, building, and maintenance disciplines. Our people know what it takes to deliver.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 reveal-up">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl mb-4"><i class="fas fa-file-alt"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Full Compliance</h4>
+                    <p class="text-slate-400 text-sm">CIDB registered, Level 3 BBBEE, VAT registered, and fully insured. We meet every requirement for government and corporate work.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 reveal-up delay-100">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl mb-4"><i class="fas fa-search-dollar"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Transparent Pricing</h4>
+                    <p class="text-slate-400 text-sm">No hidden costs. Our quotations are detailed, competitive, and submitted upfront so clients always know what to expect.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-800 border border-brand-700/30 reveal-up delay-200">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 text-xl mb-4"><i class="fas fa-seedling"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Community Impact</h4>
+                    <p class="text-slate-400 text-sm">We create local employment, use local suppliers where possible, and build infrastructure that directly improves the lives of South Africans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CTA -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-brand-800 border-t border-brand-700/30">
+        <div class="max-w-4xl mx-auto px-4 text-center reveal-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Work With Us?</h2>
+            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">Whether you need a new building, emergency repairs, or infrastructure maintenance — Abaphumeleli delivers. Let's start a conversation.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <a href="index.html#contact" class="px-10 py-5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-xl transition shadow-glow text-lg flex items-center justify-center gap-2 group">
+                    Get a Free Quote <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="tel:0832486384" class="px-10 py-5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl transition text-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-phone"></i> 083 248 6384
+                </a>
+            </div>
+            <div class="flex justify-center gap-4">
+                <a href="work.html" class="text-brand-400 hover:text-white font-semibold flex items-center gap-2 transition">
+                    View Our Work <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="logo.png" alt="Logo" class="h-16 w-auto">
+                       <!---- <div>
+                            <h2 class="text-lg font-extrabold text-gray-900 leading-none">ABAPHUMELELI</h2>
+                            <p class="text-[9px] text-brand-500 font-semibold tracking-[0.2em] uppercase">Trading 157 CC</p>
+                        </div>-->
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">CIDB-registered construction company specialising in civil works, building construction, and rapid insurance reinstatement across South Africa.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-white hover:bg-brand-500 hover:border-brand-500 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-white hover:bg-brand-500 hover:border-brand-500 transition"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="index.html" class="hover:text-brand-600 transition">Home</a></li>
+                        <li><a href="index.html#services" class="hover:text-brand-600 transition">Services</a></li>
+                        <li><a href="work.html" class="hover:text-brand-600 transition">Our Work</a></li>
+                        <li><a href="about.html" class="hover:text-brand-600 transition font-semibold text-brand-600">About Us</a></li>
+                        <li><a href="index.html#contact" class="hover:text-brand-600 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-start gap-3"><i class="fas fa-phone mt-1 text-brand-500"></i><span>083 248 6384</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-envelope mt-1 text-brand-500"></i><span>info@abaphumeleli.co.za</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-globe mt-1 text-brand-500"></i><span>www.abaphumeleli.co.za</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-400">© Abaphumeleli Trading 57 CC. All rights reserved. CK: 2004/010055/23 | VAT: 4540217298</p>
+                <div class="flex gap-6 text-xs text-gray-400">
+                    <a href="#" class="hover:text-brand-600 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-600 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="tel:0832486384" class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-brand-500 text-white rounded-full shadow-glow-lg flex items-center justify-center text-xl z-50 animate-bounce"><i class="fas fa-phone"></i></a>
+
+    <button id="scroll-top-btn" class="fixed bottom-6 left-6 w-12 h-12 bg-brand-500 hover:bg-brand-600 text-white rounded-full shadow-glow flex items-center justify-center text-lg z-50 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Mobile menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
+
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Scroll to top
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) scrollTopBtn.classList.add('visible');
+            else scrollTopBtn.classList.remove('visible');
+        });
+
+        // Reveal animations
+        gsap.utils.toArray('.reveal-up').forEach(el => {
+            gsap.to(el, { scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" }, y: 0, opacity: 1, duration: 0.8, ease: "power3.out" });
+        });
+        gsap.utils.toArray('.reveal-left').forEach(el => {
+            gsap.to(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 0, opacity: 1, duration: 1, ease: "power3.out" });
+        });
+        gsap.utils.toArray('.reveal-right').forEach(el => {
+            gsap.to(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 0, opacity: 1, duration: 1, ease: "power3.out" });
+        });
+    </script>
+</body>
+</html>
